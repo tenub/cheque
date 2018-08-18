@@ -1,0 +1,78 @@
+:root {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: calc(10px + 0.625vw);
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+    max-width: 90%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.c-cheque {
+    position: relative;
+    width: 100%;
+    background-color: hsl(45, 45%, 90%);
+    box-shadow: 0 0.25em 1em hsla(0, 0%, 0%, 0.0625), 0 0.0625em 0.125em hsla(0, 0%, 0%, 0.125);
+}
+
+.c-cheque::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(2.75 / 6 * 100%);
+}
+
+.c-cheque__name {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    display: flex;
+    width: calc(100% - 2em);
+}
+
+.c-cheque__input {
+    appearance: none;
+    background: none;
+    border: none;
+}
+
+.c-cheque__input--name {
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 0;
+    color: hsla(25, 65%, 10%, 0.75);
+}
+
+.c-cheque__input--name:focus {
+    color: hsla(25, 65%, 10%, 1);
+    outline: none;
+}
+
+@-webkit-keyframes autofill {
+    to {
+        background-color: transparent;
+    }
+}
+
+.c-cheque__input--name:-webkit-autofill,
+.c-cheque__input--name:-webkit-autofill:hover,
+.c-cheque__input--name:-webkit-autofill:focus {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
